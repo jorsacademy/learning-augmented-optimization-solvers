@@ -64,5 +64,5 @@ def test_predictions_are_binary_labels() -> None:
 def test_invalid_label_encoding_is_rejected() -> None:
     x = np.array([[0.0], [1.0]])
     y = np.array([0, 1])
-    with pytest.raises(ValueError, match="encoded as -1 and \+1"):
+    with pytest.raises(ValueError, match=r"encoded as -1 and \+1"):
         fit_integer_scorecard(x, y)
