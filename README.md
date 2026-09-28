@@ -20,6 +20,7 @@ This repository is the primary umbrella repository for Jors Academy work on **le
 - [`learning-to-select-primal-heuristics`](projects/learning-to-select-primal-heuristics/)
 - [`ml-warm-start-constraint-generation`](projects/ml-warm-start-constraint-generation/)
 - [`neural-diving-mip-solution-prediction`](projects/neural-diving-mip-solution-prediction/)
+- [`mixed-integer-interpretable-ml`](projects/mixed-integer-interpretable-ml/)
 
 The 11 recovered projects retain their own files and provenance records. The two additional projects—`learning-to-search-bnb-nodes` and `learning-to-select-primal-heuristics`—fill solver-control gaps that were not represented as standalone projects in the restored monorepo.
 

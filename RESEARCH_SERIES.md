@@ -46,3 +46,12 @@ The ordering is pedagogical rather than a ranking of methods.
 | `learning-to-select-primal-heuristics` | Which constructive primal heuristic should run on this instance? | Portfolio selection chooses among feasible complete heuristics rather than predicting variable assignments. |
 
 These two projects close the remaining gaps between presolve/configuration, tree search, cuts, primal construction, decomposition, and CP-SAT guidance.
+
+
+## Optimization-built interpretable ML
+
+| Repository | Primary question | Relationship |
+|---|---|---|
+| `mixed-integer-interpretable-ml` | Can an exact MIP learn a sparse small-integer scorecard directly? | Reverse direction: optimization constructs the ML model rather than ML controlling the optimizer |
+
+This project is intentionally adjacent to, rather than part of, solver-internal learning. It is retained in this umbrella until the portfolio contains enough optimization-built ML formulations to justify a separate research series.
