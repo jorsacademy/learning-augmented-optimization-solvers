@@ -2,7 +2,7 @@
 
 A compact research project showing the **reverse direction** of learning-augmented optimization: instead of using ML to control a solver, mixed-integer optimization is used to construct an interpretable machine-learning model.
 
-The initial model is a sparse integer scorecard classifier with bounded coefficients, explicit 0–1 margin violations, and an L0 feature-selection penalty.
+The project now contains two exact interpretable-MIO models: a sparse integer scorecard classifier and a depth-1 OCT-style optimal classification stump selected by MILP.
 
 ## Research question
 
@@ -67,7 +67,7 @@ This project is motivated by the broader literature on using modern mixed-intege
 - **Optimal Classification Trees (OCT)** use MIO to optimize an entire decision tree rather than greedily selecting splits.
 - **RiskSLIM** learns sparse risk scores with small integer coefficients using a substantially richer optimization model, including logistic-loss calibration.
 
-This v0.1 is **not** an implementation of OCT or RiskSLIM. It isolates a simpler exact scorecard MILP so the discrete loss, integer coefficients, sparsity indicators, big-M logic, and optimality check are transparent.
+The depth-1 stump implements the split-selection principle of optimal classification trees on a deliberately restricted tree class. It is **not** a full-depth OCT implementation, and the scorecard is not a reproduction of RiskSLIM. It isolates a simpler exact scorecard MILP so the discrete loss, integer coefficients, sparsity indicators, big-M logic, and optimality check are transparent.
 
 ## Scope boundary
 
