@@ -1,0 +1,22 @@
+name: Ecole Environment Core
+on:
+  pull_request:
+    paths: ["projects/ecole-scip-learning-environments/**",".github/workflows/ecole-environments.yml"]
+  push:
+    branches: [main]
+    paths: ["projects/ecole-scip-learning-environments/**"]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/ecole-scip-learning-environments
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -e ".[dev]"
+      - run: ruff check .
+      - run: pytest -q
