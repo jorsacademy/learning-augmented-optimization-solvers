@@ -8,6 +8,7 @@ This repository is the primary umbrella repository for Jors Academy work on **le
 ### Included projects
 
 - [`gnn-guided-generalized-assignment-variable-fixing-pytorch`](projects/gnn-guided-generalized-assignment-variable-fixing-pytorch/)
+- [`learning-large-neighborhood-search-for-mip`](projects/learning-large-neighborhood-search-for-mip/) — planned research scaffold
 - [`learning-to-branch-milp`](projects/learning-to-branch-milp/)
 - [`learning-to-branch-mip-gnn-scip-pytorch`](projects/learning-to-branch-mip-gnn-scip-pytorch/)
 - [`learning-to-configure-optimization-solvers`](projects/learning-to-configure-optimization-solvers/)
@@ -21,7 +22,7 @@ This repository is the primary umbrella repository for Jors Academy work on **le
 - [`ml-warm-start-constraint-generation`](projects/ml-warm-start-constraint-generation/)
 - [`neural-diving-mip-solution-prediction`](projects/neural-diving-mip-solution-prediction/)
 
-The 11 recovered projects retain their own files and provenance records. The two additional projects—`learning-to-search-bnb-nodes` and `learning-to-select-primal-heuristics`—fill solver-control gaps that were not represented as standalone projects in the restored monorepo.
+The 11 recovered projects retain their own files and provenance records. Three directly developed additions—`learning-to-search-bnb-nodes`, `learning-to-select-primal-heuristics`, and the planned `learning-large-neighborhood-search-for-mip` scaffold—fill solver-control gaps that were not represented as standalone projects in the restored monorepo.
 
 See [`RECOVERY_AUDIT.md`](RECOVERY_AUDIT.md) for the recovery verification, [`docs/literature-map.md`](docs/literature-map.md) for the research lineage, and [`docs/research-protocol.md`](docs/research-protocol.md) for the evaluation contract.
 <!-- portfolio-umbrella:end -->
@@ -39,6 +40,7 @@ See [`RECOVERY_AUDIT.md`](RECOVERY_AUDIT.md) for the recovery verification, [`do
 | Node pruning | `learning-to-prune-bnb-node-selection` | promising-subtree estimate | exact bounds remain authoritative |
 | Cut selection | `learning-to-cut-milp` | valid-cut ranking | only mathematically valid cuts admitted |
 | Neural diving | `neural-diving-mip-solution-prediction` | high-confidence assignments | residual exact solve / fallback |
+| Large neighborhood search | `learning-large-neighborhood-search-for-mip` | variables/neighborhood to destroy and re-optimize | exact residual solve; classical-neighborhood fallback |
 | Primal heuristic portfolio | `learning-to-select-primal-heuristics` | constructive heuristic choice | every candidate is independently feasible |
 | Variable fixing | `gnn-guided-generalized-assignment-variable-fixing-pytorch` | confident fixings | residual exact solve / fallback |
 | Column generation | `learning-to-price-column-generation-cvrptw` | pricing guidance | exact pricing fallback |
