@@ -44,5 +44,6 @@ The ordering is pedagogical rather than a ranking of methods.
 |---|---|---|
 | `learning-to-search-bnb-nodes` | Which open B&B node should be expanded next? | Node ordering changes tree traversal; it is not branching-variable selection or learned pruning. |
 | `learning-to-select-primal-heuristics` | Which constructive primal heuristic should run on this instance? | Portfolio selection chooses among feasible complete heuristics rather than predicting variable assignments. |
+| `learning-large-neighborhood-search-for-mip` | Which variables should be destroyed/unfixed and re-optimized at each LNS iteration? | Iterative neighborhood control differs from one-shot diving, variable fixing, and B&B node selection. |
 
-These two projects close the remaining gaps between presolve/configuration, tree search, cuts, primal construction, decomposition, and CP-SAT guidance.
+These additions extend coverage across presolve/configuration, tree search, cuts, primal construction, iterative neighborhood search, decomposition, and CP-SAT guidance.
