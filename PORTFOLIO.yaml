@@ -1,0 +1,26 @@
+schema_version: 1
+repository: learning-augmented-optimization-solvers
+role: umbrella
+axis: methodology
+area: learning-augmented-solvers
+status: active
+owner: jorsacademy
+projects:
+  - gnn-guided-generalized-assignment-variable-fixing-pytorch
+  - learning-large-neighborhood-search-for-mip
+  - learning-to-branch-milp
+  - learning-to-branch-mip-gnn-scip-pytorch
+  - learning-to-configure-optimization-solvers
+  - learning-to-control-cp-sat
+  - learning-to-cut-milp
+  - learning-to-presolve-mip
+  - learning-to-price-column-generation-cvrptw
+  - learning-to-prune-bnb-node-selection
+  - learning-to-search-bnb-nodes
+  - learning-to-select-primal-heuristics
+  - ml-warm-start-constraint-generation
+  - neural-diving-mip-solution-prediction
+conventions:
+  provenance_records: true
+  reproducibility_expected: true
+  benchmark_assumptions_documented: true
