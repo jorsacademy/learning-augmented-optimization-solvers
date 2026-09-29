@@ -23,6 +23,12 @@ This monorepo is **literature-informed**. It does not claim to reproduce a paper
 - Nair et al. — *Solving Mixed Integer Programs Using Neural Networks* (2020): https://arxiv.org/abs/2012.13349
 - The paper develops Neural Diving and Neural Branching around a base MIP solver.
 
+## Large neighborhood search
+
+- Sonnerat et al. — *Learning a Large Neighborhood Search Algorithm for Mixed Integer Programs* (2021): https://arxiv.org/abs/2107.10201
+- This motivates `learning-large-neighborhood-search-for-mip`: learning which variables/neighborhoods to destroy while an exact solver re-optimizes the residual MIP.
+- The planned project treats learned neighborhood selection as a primal-search control mechanism and keeps exact feasibility checks and classical-neighborhood fallbacks.
+
 ## Node search
 
 - He, Daumé III, Eisner — *Learning to Search in Branch and Bound Algorithms*, NeurIPS 2014: https://proceedings.neurips.cc/paper_files/paper/2014/hash/533d190f5aa2926b2a8a30c8bea0e05d-Abstract.html
