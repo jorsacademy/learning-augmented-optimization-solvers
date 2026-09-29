@@ -15,7 +15,7 @@ class BranchingDataset:
     labels: NDArray[np.int64]
 
     @classmethod
-    def from_arrays(cls, features: ArrayLike, labels: ArrayLike) -> "BranchingDataset":
+    def from_arrays(cls, features: ArrayLike, labels: ArrayLike) -> BranchingDataset:
         x=np.asarray(features,dtype=float)
         y=np.asarray(labels,dtype=np.int64)
         if x.ndim != 2 or y.shape != (x.shape[0],):
@@ -30,7 +30,7 @@ class BranchingImitator:
     model: LogisticRegression
 
     @classmethod
-    def fit(cls,data:BranchingDataset) -> "BranchingImitator":
+    def fit(cls,data:BranchingDataset) -> BranchingImitator:
         model=LogisticRegression(max_iter=1000).fit(data.features,data.labels)
         return cls(model)
 
