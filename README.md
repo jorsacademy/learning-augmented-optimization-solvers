@@ -75,6 +75,47 @@ This repository is grounded specifically in:
 
 The implementation here is intentionally smaller and more transparent than those systems. It is a research integration sandbox, not SCIP/Gurobi/CPLEX replacement code.
 
+
+## Where ML/AI fits across OR problem classes
+
+Learning is most useful here as an **augmentation layer around mathematical optimization**, not as a blanket replacement for LP/MIP algorithms. A useful split is between (i) predicting data, preferences, or solver decisions and (ii) enforcing feasibility, bounds, and optimality with an optimization algorithm.
+
+| Problem class | Where ML/AI can help | Recommended role of the optimizer |
+|---|---|---|
+| LP | basis or active-set prediction, solver configuration, decomposition guidance, learned objective/constraint coefficients, warm starts | simplex/interior-point methods remain the default when an exact LP solution is required |
+| IP / MILP | branching, node selection, cut selection, presolve control, primal heuristics, variable fixing, large-neighborhood selection, warm starts | branch-and-bound / branch-and-cut remains authoritative for feasibility and optimality certificates |
+| Goal programming / multi-objective models | learning preferences, aspiration levels, or trade-off parameters from observed decisions; predicting context-dependent priorities | the mathematical model should still encode the final goals and constraints; learned weights require preference data and validation |
+| Linear assignment | learning the matching costs/scores from data, or handling repeated/dynamic instances | classical assignment/min-cost-flow algorithms are usually preferable once costs and constraints are known |
+| Generalized assignment and side-constrained matching | learned variable fixing, primal guidance, neighborhood selection, or instance-specific heuristics | exact or bounded optimization is useful as a repair/certification layer |
+| Routing, scheduling, packing, and other combinatorial problems | GNNs, pointer/attention models, imitation learning, or reinforcement learning can construct or improve candidate solutions | use exact repair, local search, or a mathematical-programming fallback when guarantees matter |
+
+### Direct learned solvers vs. learning-augmented solvers
+
+A neural or RL policy can be trained to output a solution directly. This is attractive when decisions must be produced in milliseconds and small optimality losses are acceptable. The trade-off is that a direct policy generally does not provide a feasibility or optimality certificate unless the architecture or a downstream repair step explicitly enforces one.
+
+The safer pattern for many OR applications is:
+
+```text
+historical instances
+      |
+      v
+ML model learns an expensive decision
+(branch / cut / heuristic / warm start / fixing / configuration)
+      |
+      v
+exact or bounded optimizer
+      |
+      +--> checks feasibility
+      +--> repairs unsafe predictions when needed
+      +--> provides bounds / gap / certificate
+```
+
+This is the design principle used throughout this repository: **learn the expensive decision, keep mathematical validity in the solver**.
+
+### When ML is unlikely to help
+
+ML is often unnecessary for a small one-off LP, a standard assignment problem with known costs, or a model already solved comfortably within the required latency. It becomes more compelling when there is a stream of related instances, enough historical data to learn recurring structure, expensive solver-internal decisions, or a strict online latency budget. Any claimed speedup should be evaluated out-of-distribution as well as in-distribution; a learned policy that only memorizes the training instance family is not a robust solver improvement.
+
 ## Integrated pipeline
 
 ```text
